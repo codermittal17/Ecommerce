@@ -347,11 +347,6 @@ def payment_done(request, productId = None):
 def search_product(request):
  product_searched_for = request.GET.get('search-product')
  products = Product.objects.filter(brand__icontains = product_searched_for)
-#  products = Product.objects.filter(
-#   Q(brand__icontains = product_searched_for)|Q(category__icontains = product_searched_for)|Q(title__icontains = product_searched_for)
-#   )
-#  print(products)
-#  print(product_searched_for)
  context = {
   'product_searched_for' : product_searched_for,
   'products' : products
